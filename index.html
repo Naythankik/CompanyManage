@@ -26,48 +26,29 @@
           display: block;
           background: none;
         }
-      }
-      @media only screen and (max-width: 500px) {
-        div.header-menu,
-        nav > button {
-          display: none;
-        }
-        body {
-          padding: 10px;
-        }
-        nav {
+        div.social-block {
           width: 100%;
         }
-        button#hamburger {
-          display: block;
-          background: none;
+        div.in-menu-links {
+          width: 35%;
+        }
+        div.social-media {
+          width: 25%;
+        }
+        div.footer-search {
+          width: 25%;
+        }
+        div.footer-search input {
+          padding: 10px 15px;
+          width: 60%;
         }
 
-        /* main query */
-        main {
-          width: 100%;
-          margin: 0 auto;
-        }
-        div.top-section {
-          display: grid;
-        }
-        div.company-chart,
-        div.company-goal {
-          width: auto;
-        }
-        div.company-goal {
-          text-align: center;
-          padding: 10px;
-        }
-        div.company-goal h1 {
-          font-size: 40px;
-        }
-        div.company-goal p {
-          font-size: 23px;
-          width: auto;
-          color: grey;
-          margin: 10px 0;
-          text-align: center;
+        div.social-block p {
+          bottom: 0;
+          right: 0;
+          left: unset;
+          transform: none;
+          font-size: 10px;
         }
       }
     </style>
@@ -115,9 +96,11 @@
         </div>
         <div class="features">
           <div class="list-features">
-            <div class="list"><p>01</p></div>
-            <div class="features-detail">
+            <div class="list-headers">
+              <p>01</p>
               <h3>Track company-wide progress</h3>
+            </div>
+            <div class="features-detail">
               <p>
                 See how your day-to-day tasks fit into the wider vision. Go from
                 tracking progress at the milestone level all the way done to the
@@ -127,9 +110,11 @@
             </div>
           </div>
           <div class="list-features">
-            <div class="list"><p>02</p></div>
-            <div class="features-detail">
+            <div class="list-headers">
+              <p>02</p>
               <h3>Advanced built-in reports</h3>
+            </div>
+            <div class="features-detail">
               <p>
                 Set internal delivery estimates and track progress toward
                 company goals. Our customizable dashboard helps you build out
@@ -138,9 +123,11 @@
             </div>
           </div>
           <div class="list-features">
-            <div class="list"><p>03</p></div>
-            <div class="features-detail">
+            <div class="list-headers">
+              <p>03</p>
               <h3>Everything you need in one place</h3>
+            </div>
+            <div class="features-detail">
               <p>
                 Stop jumping from one service to another to communicate, store
                 files, track tasks and share documents. Manage offers an
@@ -201,68 +188,6 @@
       <button type="submit">Get Started</button>
     </main>
 
-    <!-- <section class="reviews">
-      <h2>What they've said</h2>
-      <div class="review-section">
-        <div class="comments">
-          <div class="reviewer-image">
-            <img src="./images/avatar-anisha.png" alt="" />
-          </div>
-          <div class="comment-details">
-            <h4>Aisha Li</h4>
-            <p>
-              "Manage has supercharged our teams workflow. The ability to
-              maintain visibility on larger milestones at all times keeps
-              everyone motivated."
-            </p>
-          </div>
-        </div>
-
-        <div class="comments">
-          <div class="reviewer-image">
-            <img src="./images/avatar-ali.png" alt="" />
-          </div>
-          <div class="comment-details">
-            <h4>Ali Bravo</h4>
-            <p>
-              "We have been able to cancel so many other subscriptions since
-              using Manage. There is no more cross-channel confusion and
-              everyone is much more focused."
-            </p>
-          </div>
-        </div>
-
-        <div class="comments">
-          <div class="reviewer-image">
-            <img src="./images/avatar-richard.png" alt="" />
-          </div>
-          <div class="comment-details">
-            <h4>Richard Watts</h4>
-            <p>
-              "Manage allows us to provide structure and process. It keeps us
-              organized and focused. I can't stop recommending them to everyone
-              I talk to!"
-            </p>
-          </div>
-        </div>
-
-        <div class="comments">
-          <div class="reviewer-image">
-            <img src="./images/avatar-shanai.png" alt="" />
-          </div>
-          <div class="comment-details">
-            <h4>Shanai Gough</h4>
-            <p>
-              "Their software allows us to track, manage and collaborate on our
-              projects from anywhere. It keeps the whole team in-sync without
-              being intrusive."
-            </p>
-          </div>
-        </div>
-      </div>
-      <button type="submit" class="btn-primary">Get Started</button>
-    </section> -->
-
     <footer>
       <div class="inspection">
         <div class="inspection-views">
@@ -272,6 +197,25 @@
       </div>
       <div class="socials">
         <div class="social-block">
+          <div class="footer-search">
+            <form action="#">
+              <input
+                type="text"
+                name="q"
+                placeholder="Updates in your inbox..."
+              />
+              <button type="submit">Go</button>
+            </form>
+          </div>
+          <div class="in-menu-links">
+            <a href="#">Home</a>
+            <a href="#"> Careers</a>
+            <a href="#">Pricing</a>
+            <a href="#">Community</a>
+            <a href="#">Products</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">About Us</a>
+          </div>
           <div class="social-media">
             <!-- rename the class attributes after checking the css -->
             <div class="header-image">
@@ -295,26 +239,7 @@
               </a>
             </div>
           </div>
-          <div class="in-menu-links">
-            <a href="#">Home</a>
-            <a href="#"> Careers</a>
-            <a href="#">Pricing</a>
-            <a href="#">Community</a>
-            <a href="#">Products</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">About Us</a>
-          </div>
-          <div class="footer-search">
-            <form action="#">
-              <input
-                type="text"
-                name="q"
-                placeholder="Updates in your inbox..."
-              />
-              <button type="submit">Go</button>
-            </form>
-            <p>Copyright 2020. All Rights Reserved</p>
-          </div>
+          <p>Copyright 2020. All Rights Reserved</p>
         </div>
       </div>
     </footer>

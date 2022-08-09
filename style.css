@@ -138,75 +138,101 @@ div.features {
   padding: 10px;
 }
 div.list-features {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto;
+  margin: 10px 0;
 }
-div.list {
-  text-align: center;
-  width: 10%;
+div.list-headers {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 85%;
+  gap: 5%;
 }
-div.list > p {
+div.list-headers > p {
   border-radius: 50px;
-  padding: 10px 15px;
+  padding: 5px 10px;
   font-size: 16px;
+  font-weight: 600;
   font-family: "Be Vietnam Pro", sans-serif;
   color: white;
   background: hsl(12, 88%, 59%);
+  text-align: center;
   outline: none;
   border: none;
 }
-div.features-detail {
-  width: 85%;
-  display: grid;
-  gap: 10px;
-}
-
-div.features-detail > h3 {
+div.list-headers > h3 {
   color: black;
   font-family: "Be Vietnam Pro", sans-serif;
+  align-self: center;
 }
+div.features-detail {
+  width: 85%;
+  margin-left: 15%;
+  margin-top: 10px;
+}
+
 div.features-detail > p {
   color: grey;
-  width: 91%;
   margin-bottom: 50px;
-  /* margin-top: 20px; */
   font-family: "Be Vietnam Pro", sans-serif;
-  font-size: 400;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 /* the section reviews */
 main#bottom-section {
-  background: none;
   width: 100%;
-  height: 100%;
-  padding: 30px 10px;
+  height: 100vh;
+  /* padding: 30px 10px; */
   text-align: center;
+  margin: 20px auto;
 }
+main#bottom-section h2 {
+  color: black;
+  font-family: "Be Vietnam Pro", sans-serif;
+  margin-bottom: 150px;
+}
+
+/* Applying the scroll property would overlay on the positioned element */
 div.comments {
   background: none;
-  width: 100%;
-  height: 60vh;
   margin: 60px auto;
+  /* overflow-x: scroll; */
+  width: 100%;
   display: flex;
   gap: 10px;
-  overflow-x: scroll;
-  overflow-y: hidden;
 }
+
+/* can't take more with depending on the parent's width */
 div.individual-comment {
   background: hsl(0, 0%, 98%);
   position: relative;
   width: 100%;
+  padding: 10px;
+  text-align: center;
 }
+
 div.individual-comment img {
   background: none;
+  position: absolute;
+  height: auto;
+  width: 30%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 div.individual-comment h4 {
   color: black;
   font-size: 25px;
   font-family: "Be Vietnam Pro", sans-serif;
-  margin: 30px auto;
+  margin: 60px auto 20px auto;
   width: auto;
+}
+div.individual-comment p {
+  font-family: "Be Vietnam Pro", sans-serif;
+  color: grey;
+  font-size: 400;
+  width: 100%;
+  font-size: 22px;
 }
 main#bottom-section form {
   display: none;
@@ -218,13 +244,6 @@ main#bottom-section form {
 main#bottom-section form input {
   accent-color: hsl(12, 88%, 59%);
   margin: 0 5px;
-}
-div.individual-comment p {
-  font-family: "Be Vietnam Pro", sans-serif;
-  color: grey;
-  font-size: 400;
-  width: 100%;
-  font-size: 22px;
 }
 
 /* the footer of the page */
@@ -258,23 +277,35 @@ div.inspection-views button {
 }
 div.socials {
   background: hsl(233, 12%, 13%);
+  position: relative;
   height: 30vh;
   width: 100%;
-  padding: 35px 0;
+  padding: 35px;
 }
 div.social-block {
   width: 90%;
   margin: 0 auto;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   margin: 20px auto;
+  position: relative;
   height: auto;
+}
+div.social-block p {
+  color: white;
+  font-family: "Be Vietnam Pro", sans-serif;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: fit-content;
 }
 
 div.social-media {
   background: none;
   display: grid;
   row-gap: 60px;
+  grid-template-columns: auto;
 }
 div.social-medium {
   display: flex;
@@ -316,67 +347,183 @@ div.footer-search input:focus {
   color: hsl(12, 88%, 59%);
   outline: 1px solid hsl(12, 88%, 59%);
 }
-div.footer-search p {
-  text-align: right;
-  color: white;
-  font-family: "Be Vietnam Pro", sans-serif;
-  font: 1em;
-}
 
 div.in-menu-links a:hover {
   color: hsl(12, 88%, 59%);
 }
 
-/* The code below needs debugging */
-/* section.reviews {
-    margin: 0 auto;
-    text-align: center;
+/* device width 0f range 500px */
+@media only screen and (max-width: 500px) {
+  div.header-menu,
+  nav > button {
+    display: none;
+  }
+
+  nav {
     width: 100%;
+  }
+  button#hamburger {
+    display: block;
+    background: none;
+  }
+
+  /* main query */
+  main#top-section {
+    width: 100%;
+    margin: 0 auto;
+    /* display: none; */
+  }
+  div.top-section {
+    display: grid;
+    margin-bottom: 100px;
+    /* display: none; */
+  }
+  div.company-chart,
+  div.company-goal {
+    width: auto;
+  }
+  div.company-goal {
+    text-align: center;
+    padding: 10px;
+  }
+  div.company-goal h1 {
+    font-size: 30px;
+  }
+  div.company-goal p {
+    font-size: 16px;
+    width: auto;
+    color: grey;
+    margin: 10px 0;
+    text-align: center;
+  }
+  div.bottom-section {
+    display: grid;
+  }
+  div.uniqueness {
+    width: auto;
+    text-align: center;
+  }
+  div.uniqueness h1 {
+    font-size: 30px;
+    margin: 0 auto;
+    width: 90%;
+  }
+  div.uniqueness p {
+    font-size: 16px;
+    width: 95%;
+    margin: 35px auto;
+  }
+  div.features {
+    width: auto;
+    padding-right: 0;
+  }
+  div.list-headers {
+    background: hsl(13, 100%, 96%);
+    border-radius: 20px 0 0 20px;
+    grid-template-columns: 15% 80%;
+    gap: 5%;
+  }
+  div.list-headers > p {
+    font-weight: 500;
+  }
+  div.list-headers > h3 {
+    font-size: 13px;
+  }
+
+  div.features-detail {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  div.features-detail > p {
+    font-size: 13px;
+  }
+
+  main#bottom-section {
+    display: none;
+  }
+  main#bottom-section form {
+    display: block;
+    width: 50%;
+  }
+
+  footer {
+    width: 100%;
+    display: grid;
+  }
+  div.inspection {
+    height: 55vh;
+  }
+  div.inspection-views {
+    display: grid;
+    row-gap: 30px;
+    justify-items: center;
+    text-align: center;
+  }
+  div.inspection-views p {
+    width: 80%;
+  }
+  div.socials {
+    height: 80vh;
+  }
+  div.social-block {
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 30px;
     height: auto;
-    background: navy;
-    position: relative;
+    justify-content: normal;
   }
-  section.reviews h2 {
-    color: black;
-    font-family: "Be Vietnam Pro", sans-serif;
+  div.social-block p {
+    /* bottom: 0; */
+    font-size: 13px;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-  div.review-section {
-    margin: 60px auto;
+  div.footer-search {
+    display: flex;
+    width: 100%;
+  }
+  div.footer-search form {
     display: flex;
     justify-content: space-between;
-    gap: 30px;
-    padding: 10px;
-    width: 90%;
-    height: 80%;
-    background: cyan;
-    overflow-x: scroll;
-  }
-  
-  div.comments {
-    background: hsl(0, 0%, 98%);
-    background: khaki;
-    padding: 10px;
-    width: 90%;
-  }
-  div.reviewer-image {
-    background: green;
-    width: auto;
-  }
-  
-  div.comment-details h4 {
-    color: black;
-    font-size: 25px;
-    font-family: "Be Vietnam Pro", sans-serif;
-    margin: 30px auto;
-    width: auto;
-    background: rebeccapurple;
-  }
-  div.comment-details p {
-    font-family: "Be Vietnam Pro", sans-serif;
-    color: grey;
-    font-size: 400;
     width: 100%;
-    background: yellow;
-    font-size: 22px;
   }
-   */
+  div.footer-search input {
+    padding: 12px 25px;
+    width: 70%;
+  }
+  div.footer-search button {
+    padding: 12px;
+    font-size: 14px;
+    width: 25%;
+  }
+
+  div.in-menu-links {
+    width: 85%;
+    row-gap: 20px;
+    margin: 0 auto;
+  }
+  div.social-media {
+    width: 100%;
+    margin: 50px auto;
+    row-gap: 50px;
+  }
+  div.social-media div.header-image {
+    text-align: center;
+    height: auto;
+  }
+  div.social-media > div.header-image > img {
+    height: 5vh;
+  }
+  div.social-medium {
+    /* grid-column-start: 1; */
+    grid-row-start: 1;
+  }
+  div.social-medium a {
+    width: 100%;
+    text-align: center;
+  }
+  div.social-medium a > img {
+    width: 55%;
+  }
+}
